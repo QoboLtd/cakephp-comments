@@ -1,52 +1,30 @@
-CakePHP Plugin Template
-=======================
+# Comments plugin for CakePHP
 
-About
------
+[![Build Status](https://travis-ci.org/QoboLtd/cakephp-comments.svg?branch=master)](https://travis-ci.org/QoboLtd/cakephp-comments)
+[![Latest Stable Version](https://poser.pugx.org/qobo/cakephp-comments/v/stable)](https://packagist.org/packages/qobo/cakephp-comments)
+[![Total Downloads](https://poser.pugx.org/qobo/cakephp-comments/downloads)](https://packagist.org/packages/qobo/cakephp-comments)
+[![Latest Unstable Version](https://poser.pugx.org/qobo/cakephp-comments/v/unstable)](https://packagist.org/packages/qobo/cakephp-comments)
+[![License](https://poser.pugx.org/qobo/cakephp-comments/license)](https://packagist.org/packages/qobo/cakephp-comments)
+[![codecov](https://codecov.io/gh/QoboLtd/cakephp-comments/branch/master/graph/badge.svg)](https://codecov.io/gh/QoboLtd/cakephp-comments)
 
-Template for building CakePHP 3 plugins.
+## About
+
+CakePHP 3 plugin for attaching comments attached to system records.
 
 Developed by [Qobo](https://www.qobo.biz), used in [Qobrix](https://qobrix.com).
 
-Usage
------
+## Installation
 
-Pull the template code into your plugin:
+You can install this plugin into your CakePHP application using [composer](http://getcomposer.org).
 
-```
-cd my-plugin
-git pull https://github.com/QoboLtd/cakephp-plugin-template master
-```
-
-Make sure your `composer.json` has something like this:
+The recommended way to install composer packages is:
 
 ```
-"autoload": {
-    "psr-4": {
-        "Foobar\\": "src"
-    }
-},
-"autoload-dev": {
-    "psr-4": {
-        "Foobar\\Test\\": "tests",
-        "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
-    }
-}
+composer require qobo/cakephp-comments
 ```
 
-If you do change your `composer.json` file, don't forget to run
-either `composer update` or at least `composer dump-autoload`.
-
-Change the following:
-
-1. Uncomment the `$pluginName` line in `tests/bootstrap.php` and change `Foobar` to the name of your plugin.
-2. Change the `Foobar` namespace to your plugin's in the following files:
-  1. `tests/config/routes.php`
-  2. `tests/App/Controller/AppController.php`
-  3. `tests/App/Controller/UsersController.php`
-  4. `tests/Fixture/UsersFixture.php`
-3. Put your tests into `tests/TestCase`.
-4. Put your fixtures into `tests/Fixture`.
-5. Run `vendor/bin/phpunit`
-
-If you know of any better way to do this please open an issue on GitHub or, better even, send a pull request.
+## Setup
+Load plugin
+```
+bin/cake plugin load --routes Comments
+```
