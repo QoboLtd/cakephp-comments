@@ -1,0 +1,33 @@
+{
+    "name": "qobo/cakephp-comments",
+    "description": "Comments plugin for CakePHP",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Qobo Ltd",
+            "email": "info@qobo.biz",
+            "homepage": "https://www.qobo.biz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "qobo/cakephp-utils": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0",
+        "cakephp/cakephp-codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qobo\\Comments\\": "src",
+            "Qobo\\Comments\\Test\\Fixture\\": "tests\\Fixture"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Qobo\\Comments\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    }
+}

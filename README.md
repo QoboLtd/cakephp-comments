@@ -9,7 +9,7 @@
 
 ## About
 
-CakePHP 3 plugin for attaching comments attached to system records.
+CakePHP 3 plugin for attaching comments to system records.
 
 Developed by [Qobo](https://www.qobo.biz), used in [Qobrix](https://qobrix.com).
 
@@ -26,5 +26,5 @@ composer require qobo/cakephp-comments
 ## Setup
 Load plugin
 ```
-bin/cake plugin load --routes Comments
+bin/cake plugin load --routes Qobo/Comments
 ```
