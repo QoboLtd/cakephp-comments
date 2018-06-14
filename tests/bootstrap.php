@@ -4,7 +4,7 @@
 use Cake\Core\Configure;
 use Cake\Filesystem\Folder;
 
-//$pluginName = 'Foobar';
+$pluginName = 'Comments';
 if (empty($pluginName)) {
     throw new \Exception("Plugin name is not configured");
 }
