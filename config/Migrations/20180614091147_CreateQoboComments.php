@@ -37,6 +37,20 @@ class CreateQoboComments extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
+        $table->addColumn('parent_id', 'uuid', [
+            'default' => null,
+            'null' => true,
+        ]);
+        $table->addColumn('lft', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('rght', 'integer', [
+            'default' => null,
+            'limit' => 11,
+            'null' => false,
+        ]);
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
