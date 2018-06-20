@@ -24,7 +24,7 @@ class CreateQoboComments extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->addColumn('user', 'uuid', [
+        $table->addColumn('user_id', 'uuid', [
             'default' => null,
             'null' => false,
         ]);
