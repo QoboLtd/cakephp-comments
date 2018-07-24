@@ -38,6 +38,7 @@ class CommentsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Tree');
         $this->addBehavior('Muffin/Trash.Trash');
 
         $this->belongsTo('Author', [
