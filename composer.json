@@ -22,7 +22,7 @@
         "psr-4": {
             "Qobo\\Comments\\": "src",
             "Qobo\\Comments\\Test\\Fixture\\": "tests\\Fixture",
-            "CakeDC\\Users\\Test\\Fixture\\": "tests\\Fixture"
+            "CakeDC\\Users\\Test\\Fixture\\": "tests"
         }
     },
     "autoload-dev": {
