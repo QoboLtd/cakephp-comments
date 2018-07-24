@@ -77,6 +77,11 @@ class CommentsTable extends Table
             ->notEmpty('related_model');
 
         $validator
+            ->uuid('related_id')
+            ->requirePresence('related_id', 'create')
+            ->notEmpty('related_id');
+
+        $validator
             ->dateTime('trashed')
             ->allowEmpty('trashed');
 
