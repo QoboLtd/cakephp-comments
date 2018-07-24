@@ -38,6 +38,7 @@ class CommentsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Tree');
         $this->addBehavior('Muffin/Trash.Trash');
 
         $this->belongsTo('Author', [
@@ -74,6 +75,11 @@ class CommentsTable extends Table
             ->maxLength('related_model', 255)
             ->requirePresence('related_model', 'create')
             ->notEmpty('related_model');
+
+        $validator
+            ->uuid('related_id')
+            ->requirePresence('related_id', 'create')
+            ->notEmpty('related_id');
 
         $validator
             ->dateTime('trashed')
