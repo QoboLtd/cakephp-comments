@@ -6,6 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/qobo/cakephp-comments/v/unstable)](https://packagist.org/packages/qobo/cakephp-comments)
 [![License](https://poser.pugx.org/qobo/cakephp-comments/license)](https://packagist.org/packages/qobo/cakephp-comments)
 [![codecov](https://codecov.io/gh/QoboLtd/cakephp-comments/branch/master/graph/badge.svg)](https://codecov.io/gh/QoboLtd/cakephp-comments)
+[![BCH compliance](https://bettercodehub.com/edge/badge/QoboLtd/cakephp-comments?branch=master)](https://bettercodehub.com/)
 
 ## About
 
