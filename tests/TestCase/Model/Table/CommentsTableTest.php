@@ -68,7 +68,7 @@ class CommentsTableTest extends TestCase
         $this->assertTrue($this->Comments->hasBehavior('Tree'));
         $this->assertTrue($this->Comments->hasBehavior('Trash'));
 
-        $this->assertInstanceOf(BelongsTo::class, $this->Comments->association('Author'));
+        $this->assertInstanceOf(BelongsTo::class, $this->Comments->getAssociation('Author'));
     }
 
     /**

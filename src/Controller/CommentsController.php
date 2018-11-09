@@ -76,7 +76,7 @@ class CommentsController extends AppController
         $this->set('success', $success);
         $success ?
             $this->set('data', $comment->get('id')) :
-            $this->set('error', sprintf('Failed to save comment: %s', json_encode($comment->errors())));
+            $this->set('error', sprintf('Failed to save comment: %s', json_encode($comment->getErrors())));
 
         $this->set('_serialize', ['success', 'data', 'error']);
     }
