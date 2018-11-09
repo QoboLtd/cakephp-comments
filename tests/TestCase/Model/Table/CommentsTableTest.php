@@ -36,7 +36,11 @@ class CommentsTableTest extends TestCase
     {
         parent::setUp();
 
-        $this->Comments = TableRegistry::getTableLocator()->get('Qobo/Comments.Comments');
+        /**
+         * @var \Qobo\Comments\Model\Table\CommentsTable $table
+         */
+        $table = TableRegistry::getTableLocator()->get('Qobo/Comments.Comments');
+        $this->Comments = $table;
     }
 
     /**
@@ -56,7 +60,7 @@ class CommentsTableTest extends TestCase
      *
      * @return void
      */
-    public function testInitialize()
+    public function testInitialize(): void
     {
         $this->assertInstanceOf(CommentsTable::class, $this->Comments);
 
@@ -68,7 +72,7 @@ class CommentsTableTest extends TestCase
         $this->assertTrue($this->Comments->hasBehavior('Tree'));
         $this->assertTrue($this->Comments->hasBehavior('Trash'));
 
-        $this->assertInstanceOf(BelongsTo::class, $this->Comments->association('Author'));
+        $this->assertInstanceOf(BelongsTo::class, $this->Comments->getAssociation('Author'));
     }
 
     /**
@@ -76,7 +80,7 @@ class CommentsTableTest extends TestCase
      *
      * @return void
      */
-    public function testValidationDefault()
+    public function testValidationDefault(): void
     {
         $this->assertInstanceOf(Validator::class, $this->Comments->validationDefault(new Validator()));
     }
@@ -86,12 +90,12 @@ class CommentsTableTest extends TestCase
      *
      * @return void
      */
-    public function testBuildRules()
+    public function testBuildRules(): void
     {
         $this->assertInstanceOf(RulesChecker::class, $this->Comments->buildRules(new RulesChecker()));
     }
 
-    public function testSave()
+    public function testSave(): void
     {
         $data = [
             'content' => 'Hello World',

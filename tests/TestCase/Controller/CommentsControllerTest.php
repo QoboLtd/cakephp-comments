@@ -6,6 +6,8 @@ use Cake\TestSuite\IntegrationTestCase;
 
 /**
  * Qobo\Comments\Test\App\Controller\CommentsController Test Case
+ *
+ * @property \Qobo\Comments\Model\Table\CommentsTable $Comments
  */
 class CommentsControllerTest extends IntegrationTestCase
 {
@@ -18,7 +20,11 @@ class CommentsControllerTest extends IntegrationTestCase
     {
         parent::setUp();
 
-        $this->Comments = TableRegistry::getTableLocator()->get('Qobo/Comments.Comments');
+        /**
+         * @var \Qobo\Comments\Model\Table\CommentsTable $table
+         */
+        $table = TableRegistry::getTableLocator()->get('Qobo/Comments.Comments');
+        $this->Comments = $table;
 
         $this->configRequest([
             'headers' => [
@@ -36,14 +42,14 @@ class CommentsControllerTest extends IntegrationTestCase
         parent::tearDown();
     }
 
-    public function testIndexUnauthenticated()
+    public function testIndexUnauthenticated(): void
     {
         $this->get('/comments/comments/index/Articles/00000000-0000-0000-0000-000000000001');
 
         $this->assertResponseCode(403);
     }
 
-    public function testIndex()
+    public function testIndex(): void
     {
         $this->session(['Auth.User.id' => '00000000-0000-0000-0000-000000000004']);
 
@@ -58,14 +64,14 @@ class CommentsControllerTest extends IntegrationTestCase
         $this->assertNotEmpty($response->data);
     }
 
-    public function testAddUnauthenticated()
+    public function testAddUnauthenticated(): void
     {
         $this->post('/comments/comments/add');
 
         $this->assertResponseCode(403);
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         $this->session(['Auth.User.id' => '00000000-0000-0000-0000-000000000004']);
 
@@ -75,7 +81,7 @@ class CommentsControllerTest extends IntegrationTestCase
             'related_id' => '00000000-0000-0000-0000-000000000001'
         ];
 
-        $this->post('/comments/comments/add', json_encode($data));
+        $this->post('/comments/comments/add', $data);
 
         $this->assertResponseCode(200);
         $this->assertJson($this->_getBodyAsString());
@@ -89,7 +95,7 @@ class CommentsControllerTest extends IntegrationTestCase
         $this->assertEmpty(array_diff($data, $entity->toArray()));
     }
 
-    public function testAddInvalidData()
+    public function testAddInvalidData(): void
     {
         $this->session(['Auth.User.id' => '00000000-0000-0000-0000-000000000004']);
 
@@ -98,7 +104,7 @@ class CommentsControllerTest extends IntegrationTestCase
             'related_id' => true
         ];
 
-        $this->post('/comments/comments/add', json_encode($data));
+        $this->post('/comments/comments/add', $data);
 
         $this->assertResponseCode(200);
         $this->assertJson($this->_getBodyAsString());
@@ -112,19 +118,23 @@ class CommentsControllerTest extends IntegrationTestCase
         $this->assertContains('related_id', $response->error);
     }
 
-    public function testDeleteUnauthenticated()
+    public function testDeleteUnauthenticated(): void
     {
         $this->delete('/comments/comments/delete/00000000-0000-0000-0000-000000000001');
 
         $this->assertResponseCode(403);
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
         $this->session(['Auth.User.id' => '00000000-0000-0000-0000-000000000004']);
 
         $id = '00000000-0000-0000-0000-000000000001';
-        $query = $this->Comments->find('all')->where([$this->Comments->getPrimaryKey() => $id]);
+        /**
+         * @var string $primaryKey
+         */
+        $primaryKey = $this->Comments->getPrimaryKey();
+        $query = $this->Comments->find('all')->where([$primaryKey => $id]);
 
         $this->assertFalse($query->isEmpty());
 
@@ -133,14 +143,18 @@ class CommentsControllerTest extends IntegrationTestCase
         $this->assertResponseCode(200);
         $this->assertJson($this->_getBodyAsString());
 
-        $query = $this->Comments->find('all')->where([$this->Comments->getPrimaryKey() => $id]);
+        /**
+         * @var string $primaryKey
+         */
+        $primaryKey = $this->Comments->getPrimaryKey();
+        $query = $this->Comments->find('all')->where([$primaryKey => $id]);
         $response = json_decode($this->_getBodyAsString());
 
         $this->assertTrue($response->success);
         $this->assertTrue($query->isEmpty());
     }
 
-    public function testDeleteFromOtherUser()
+    public function testDeleteFromOtherUser(): void
     {
         $this->session(['Auth.User.id' => '00000000-0000-0000-0000-000000000004']);
 
@@ -151,7 +165,11 @@ class CommentsControllerTest extends IntegrationTestCase
         $this->assertResponseCode(200);
         $this->assertJson($this->_getBodyAsString());
 
-        $query = $this->Comments->find('all')->where([$this->Comments->getPrimaryKey() => $id]);
+        /**
+         * @var string $primaryKey
+         */
+        $primaryKey = $this->Comments->getPrimaryKey();
+        $query = $this->Comments->find('all')->where([$primaryKey => $id]);
         $response = json_decode($this->_getBodyAsString());
 
         $this->assertFalse($response->success);
