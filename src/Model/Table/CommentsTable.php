@@ -44,7 +44,7 @@ class CommentsTable extends Table
         $this->belongsTo('Author', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
-            'className' => Configure::read('Users.table')
+            'className' => Configure::read('Users.table'),
         ]);
     }
 

@@ -49,7 +49,7 @@ class CommentsController extends AppController
         $data = $this->Comments->find('all')
             ->where([
                 'related_model' => $this->request->getParam('pass.0'),
-                'related_id' => $this->request->getParam('pass.1')
+                'related_id' => $this->request->getParam('pass.1'),
             ])
             ->contain('Author');
         $data = $data->all();
