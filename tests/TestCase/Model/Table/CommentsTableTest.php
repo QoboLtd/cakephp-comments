@@ -17,7 +17,7 @@ class CommentsTableTest extends TestCase
 {
     public $fixtures = [
         'plugin.CakeDC/Users.users',
-        'plugin.Qobo/Comments.comments'
+        'plugin.Qobo/Comments.comments',
     ];
 
     /**
@@ -101,7 +101,7 @@ class CommentsTableTest extends TestCase
             'content' => 'Hello World',
             'related_model' => 'Articles',
             'related_id' => '00000000-0000-0000-0000-000000000001',
-            'user_id' => '00000000-0000-0000-0000-000000000001'
+            'user_id' => '00000000-0000-0000-0000-000000000001',
         ];
 
         $entity = $this->Comments->newEntity();

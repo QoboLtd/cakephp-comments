@@ -13,7 +13,7 @@ class CommentsControllerTest extends IntegrationTestCase
 {
     public $fixtures = [
         'plugin.CakeDC/Users.users',
-        'plugin.Qobo/Comments.comments'
+        'plugin.Qobo/Comments.comments',
     ];
 
     public function setUp()
@@ -30,8 +30,8 @@ class CommentsControllerTest extends IntegrationTestCase
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
-                'X-Requested-With' => 'XMLHttpRequest'
-            ]
+                'X-Requested-With' => 'XMLHttpRequest',
+            ],
         ]);
     }
 
@@ -78,7 +78,7 @@ class CommentsControllerTest extends IntegrationTestCase
         $data = [
             'content' => 'Hello World',
             'related_model' => 'Articles',
-            'related_id' => '00000000-0000-0000-0000-000000000001'
+            'related_id' => '00000000-0000-0000-0000-000000000001',
         ];
 
         $this->post('/comments/comments/add', $data);
@@ -101,7 +101,7 @@ class CommentsControllerTest extends IntegrationTestCase
 
         $data = [
             'content' => '',
-            'related_id' => true
+            'related_id' => true,
         ];
 
         $this->post('/comments/comments/add', $data);

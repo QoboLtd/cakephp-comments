@@ -58,7 +58,7 @@ class CommentsFixture extends TestFixture
                 'rght' => 0,
                 'created' => '2018-07-24 09:48:02',
                 'modified' => '2018-07-24 09:48:02',
-                'trashed' => null
+                'trashed' => null,
             ],
             [
                 'id' => '00000000-0000-0000-0000-000000000002',
@@ -71,7 +71,7 @@ class CommentsFixture extends TestFixture
                 'rght' => 0,
                 'created' => '2018-07-24 09:50:02',
                 'modified' => '2018-07-24 09:50:02',
-                'trashed' => null
+                'trashed' => null,
             ],
         ];
         parent::init();
