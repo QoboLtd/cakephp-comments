@@ -16,8 +16,8 @@ use Qobo\Comments\Model\Table\CommentsTable;
 class CommentsTableTest extends TestCase
 {
     public $fixtures = [
-        'plugin.CakeDC/Users.users',
-        'plugin.Qobo/Comments.comments',
+        'plugin.CakeDC/Users.Users',
+        'plugin.Qobo/Comments.Comments',
     ];
 
     /**

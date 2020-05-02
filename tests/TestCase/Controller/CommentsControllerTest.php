@@ -12,8 +12,8 @@ use Cake\TestSuite\IntegrationTestCase;
 class CommentsControllerTest extends IntegrationTestCase
 {
     public $fixtures = [
-        'plugin.CakeDC/Users.users',
-        'plugin.Qobo/Comments.comments',
+        'plugin.CakeDC/Users.Users',
+        'plugin.Qobo/Comments.Comments',
     ];
 
     public function setUp()
