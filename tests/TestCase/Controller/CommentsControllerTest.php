@@ -2,15 +2,18 @@
 namespace Qobo\Comments\Test\TestCase\Controller;
 
 use Cake\ORM\TableRegistry;
-use Cake\TestSuite\IntegrationTestCase;
+use Cake\TestSuite\IntegrationTestTrait;
+use Cake\TestSuite\TestCase;
 
 /**
  * Qobo\Comments\Test\App\Controller\CommentsController Test Case
  *
  * @property \Qobo\Comments\Model\Table\CommentsTable $Comments
  */
-class CommentsControllerTest extends IntegrationTestCase
+class CommentsControllerTest extends TestCase
 {
+    use IntegrationTestTrait;
+
     public $fixtures = [
         'plugin.CakeDC/Users.Users',
         'plugin.Qobo/Comments.Comments',
