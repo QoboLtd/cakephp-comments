@@ -58,17 +58,17 @@ class CommentsTable extends Table
     {
         $validator
             ->uuid('id')
-            ->allowEmpty('id', 'create');
+            ->allowEmptyString('id', null, 'create');
 
         $validator
             ->scalar('content')
             ->requirePresence('content', 'create')
-            ->notEmpty('content');
+            ->notEmptyString('content');
 
         $validator
             ->uuid('user_id')
             ->requirePresence('user_id', 'create')
-            ->notEmpty('user_id');
+            ->notEmptyString('user_id');
 
         $validator
             ->scalar('related_model')
@@ -79,11 +79,11 @@ class CommentsTable extends Table
         $validator
             ->uuid('related_id')
             ->requirePresence('related_id', 'create')
-            ->notEmpty('related_id');
+            ->notEmptyString('related_id');
 
         $validator
             ->dateTime('trashed')
-            ->allowEmpty('trashed');
+            ->allowEmptyDateTime('trashed');
 
         return $validator;
     }
